@@ -1,0 +1,40 @@
+# data
+dataset: 'car'
+dataset_path: '../01_data/d4_renamed_train'
+transcripts_path: './data/transcripts/train_transcript.txt'
+output_unit: 'character'
+
+# trainer
+num_epochs: 50
+batch_size: 4
+save_result_every: 1000
+checkpoint_every: 50000
+mode: 'train'
+seed: 777
+resume: false
+early_stopping_target: val_CER
+early_stopping_patience: 10
+early_stopping_mode: min
+loss_name: 'CTC'
+
+# device
+num_workers: 2
+use_cuda: True
+gpus: "1"
+
+# optim
+optimizer: 'adam'
+init_lr: 1e-06
+final_lr: 1e-06
+peak_lr: 1e-04
+init_lr_scale: 0.01
+final_lr_scale: 0.05
+max_grad_norm: 400
+warmup_steps: 400
+weight_decay: 1e-05
+reduction: 'mean'
+lr_scheduler: 'tri_stage_lr_scheduler'
+
+# logger
+wandb: True
+print_every: 1

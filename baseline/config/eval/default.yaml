@@ -1,0 +1,12 @@
+dataset_path: '../01_data/d3_renamed_test'
+transcripts_path: 'data/transcripts/test_transcript.txt'
+output_unit: 'character'
+decode: 'greedy'
+k: 3
+model_path: 'results/train/20220517_112514/model.pt'
+batch_size: 4
+seed: 777
+num_workers: 2
+use_cuda: True
+train_serial: '20220517_112514'
+gpus: '1'

@@ -1,0 +1,4 @@
+defaults:
+  - audio: fbank
+  - model: ds2
+  - train: ds2_train

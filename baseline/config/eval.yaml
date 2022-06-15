@@ -1,0 +1,4 @@
+defaults:
+  - audio: fbank
+  - eval: default
+  - model: ds2

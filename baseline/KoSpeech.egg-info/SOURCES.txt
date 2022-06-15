@@ -1,0 +1,7 @@
+README.md
+setup.py
+KoSpeech.egg-info/PKG-INFO
+KoSpeech.egg-info/SOURCES.txt
+KoSpeech.egg-info/dependency_links.txt
+KoSpeech.egg-info/requires.txt
+KoSpeech.egg-info/top_level.txt
