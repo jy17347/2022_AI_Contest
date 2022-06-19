@@ -42,7 +42,7 @@ class ToMelSpectogram(object):
     def __call__(self, data):
         samples = data['samples']
         sample_rate = data['sample_rate']
-        s = librosa.feature.melspectrogram(smamples, sr=sample_rate, n_mels=self.n_mels)
+        s = librosa.feature.melspectrogram(samples, sr=sample_rate, n_mels=self.n_mels)
         data['mel_spectrogram'] = librosa.power_to_db(s, ref=np.max)
         return data
 
