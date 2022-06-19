@@ -11,26 +11,14 @@ class Audio_dataset(torch.utils.data.Dataset):
         wav_dir = os.path.join(folder, 'audio')
         wav_dir = natsort.natsorted(os.listdir(wav_dir))
         label_dir = os.path.join(folder, 'label')
-        label = pd.read_csv(label_dir + "/sample_labels.csv")
+        label_csv = pd.read_csv(label_dir + "/sample_labels.csv")
         
         data = []
+
         for wav in wav_dir:
-            data.append((wav, label[label['file_name']==wav]['text'].tolist()[0]))
+            label = label_csv[label_csv['file_name']==wav]['text'].tolist()[0]
+            data.append((wav, label))
 
-            
-
-        # data = []
-        # for c in all_classes:
-        #     d = os.path.join(folder,c)
-        #     target = class_to_idx[c]
-        #     for f in os.listdir(d):
-        #         path = os.path.join(d, f)
-        #         data.append((path, target))
-
-        # target = class_to_idx['silence']
-        # data += [('', target)] * int(len(data) * silence_percentage)
-
-        # self.classes = classes
         self.data = data
         self.transform = transform
     
