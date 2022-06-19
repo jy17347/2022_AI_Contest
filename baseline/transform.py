@@ -8,13 +8,13 @@ class LoadAudio(object):
         self.sample_rate = sample_rate
 
     def __call__(self, data):
-        path = data['path']
+        path = data['path_wave']
         if path:
             samples, sample_rate = librosa.load(path, self.sample_rate)
         else:
             sample_rate = self.sample_rate
             samples = np.zeros(sample_rate, dtype=np.float32)
-        data['smaples'] = samples
+        data['samples'] = samples
         data['sample_rate'] = sample_rate
         return data
 
@@ -34,7 +34,7 @@ class FixAudioLength(object):
 
         return data
 
-class ToMelSpectogram(object):
+class ToMelSpectrogram(object):
 
     def __init__(self, n_mels=32):
         self.n_mels = n_mels
