@@ -11,7 +11,7 @@ from tqdm import tqdm
 
 path_dataset = "./sample"
 n_mels=40
-batch_size=4
+batch_size=6
 use_gpu=False
 
 num_dataloader_workers=1
@@ -32,4 +32,4 @@ dataloader = torch.utils.data.DataLoader(dataset,
 for batch in tqdm(dataloader, unit='audios', unit_scale=dataloader.batch_size):
     inputs = batch['input']
     targets = batch['target']
-    print(len(inputs), len(targets))
+    print(f"==============================\n{len(inputs)}")
